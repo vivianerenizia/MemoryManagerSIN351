@@ -32,6 +32,6 @@ subistituição de páginas escolhido. Ao final da execução do programa, é ex
 
 ### Contato:
 * Jhonatha Cordeiro Gomes 
-  * https://www.linkedin.com/in/jhonatha-cordeiro-88414a185/
+  * https://www.linkedin.com/in/jhonathacordeiro/
 * Viviane Renizia Mendes Silva
   * https://www.linkedin.com/in/vivianerenizia/
