@@ -45,10 +45,9 @@ typedef struct {
 
 int fifo(int8_t** page_table, int num_pages, int prev_page, int fifo_frm, int num_frames, int clock){
 	int i;
-	for (i=0;i<num_pages;i++){//O for verifica se o endereço fisíco é compatível com aquele armazenado no fifo_frm, caso sim, a vítima foi encontrada na tabela de páginas!
-		if(page_table[i][PT_FRAMEID]==fifo_frm){
-			printf("Falta de pagina -> %d - %d\n", i, fifo_frm);
-			return i;
+	for (i=0;i<num_pages;i++){//For percorre o numero de páginas
+		if(page_table[i][PT_FRAMEID]==fifo_frm){//o if verifica se o endereço fisíco é compatível com o fifo_frm
+			return i; //retorna a vitima da tabela de paginas
 		}
 	}
     return -1;
