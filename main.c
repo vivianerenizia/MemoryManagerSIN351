@@ -1,3 +1,8 @@
+// Universidade Federal de Viçosa - Campus Rio Paranáiba (UFV-CRP)
+// Projeto prático 2 da disciplina Sistemas Operacionais - SIN351 
+// Desenvolvido por Jhonatha Cordeiro (5984) e Viviane Renizia (5209)
+// Professor: Rodrigo Moreira 
+
 #include <assert.h>
 #include <string.h>
 #include <stdio.h>
@@ -38,28 +43,30 @@ typedef struct {
 //
 // Adicione mais parâmetros caso ache necessário
 
-int fifo(int8_t** page_table, int num_pages, int prev_page,
-         int fifo_frm, int num_frames, int clock) {
+int fifo(int8_t** page_table, int num_pages, int prev_page, int fifo_frm, int num_frames, int clock){
+	int i;
+	for (i=0;i<num_pages;i++){//O for verifica se o endereço fisíco é compatível com aquele armazenado no fifo_frm, caso sim, a vítima foi encontrada na tabela de páginas!
+		if(page_table[i][PT_FRAMEID]==fifo_frm){
+			printf("Falta de pagina -> %d - %d\n", i, fifo_frm);
+			return i;
+		}
+	}
     return -1;
 }
 
-int second_chance(int8_t** page_table, int num_pages, int prev_page,
-                  int fifo_frm, int num_frames, int clock) {
+int second_chance(int8_t** page_table, int num_pages, int prev_page, int fifo_frm, int num_frames, int clock) {
     return -1;
 }
 
-int nru(int8_t** page_table, int num_pages, int prev_page,
-        int fifo_frm, int num_frames, int clock) {
+int nru(int8_t** page_table, int num_pages, int prev_page, int fifo_frm, int num_frames, int clock) {
     return -1;
 }
 
-int aging(int8_t** page_table, int num_pages, int prev_page,
-          int fifo_frm, int num_frames, int clock) {
+int aging(int8_t** page_table, int num_pages, int prev_page, int fifo_frm, int num_frames, int clock) {
     return -1;
 }
 
-int random_page(int8_t** page_table, int num_pages, int prev_page,
-                int fifo_frm, int num_frames, int clock) {
+int random_page(int8_t** page_table, int num_pages, int prev_page, int fifo_frm, int num_frames, int clock) {
     int page = rand() % num_pages;
     while (page_table[page][PT_MAPPED] == 0) // Encontra página mapeada
         page = rand() % num_pages;
@@ -68,8 +75,7 @@ int random_page(int8_t** page_table, int num_pages, int prev_page,
 
 // Simulador a partir daqui
 
-int find_next_frame(int *physical_memory, int *num_free_frames,
-                    int num_frames, int *prev_free) {
+int find_next_frame(int *physical_memory, int *num_free_frames, int num_frames, int *prev_free) {
     if (*num_free_frames == 0) {
         return -1;
     }
@@ -86,7 +92,7 @@ int find_next_frame(int *physical_memory, int *num_free_frames,
 int simulate(int8_t **page_table, int num_pages, int *prev_page, int *fifo_frm,
              int *physical_memory, int *num_free_frames, int num_frames,
              int *prev_free, int virt_addr, char access_type,
-             eviction_f evict, int clock) {
+             eviction_f evict, int clock){
     if (virt_addr >= num_pages || virt_addr < 0) {
         printf("Invalid access \n");
         exit(1);
@@ -99,15 +105,13 @@ int simulate(int8_t **page_table, int num_pages, int *prev_page, int *fifo_frm,
 
     int next_frame_addr;
     if ((*num_free_frames) > 0) { // Ainda temos memória física livre!
-        next_frame_addr = find_next_frame(physical_memory, num_free_frames,
-                                          num_frames, prev_free);
+        next_frame_addr = find_next_frame(physical_memory, num_free_frames, num_frames, prev_free);
         if (*fifo_frm == -1)
             *fifo_frm = next_frame_addr;
         *num_free_frames = *num_free_frames - 1;
     } else { // Precisamos liberar a memória!
         assert(*num_free_frames == 0);
-        int to_free = evict(page_table, num_pages, *prev_page, *fifo_frm,
-                            num_frames, clock);
+        int to_free = evict(page_table, num_pages, *prev_page, *fifo_frm, num_frames, clock);
         assert(to_free >= 0);
         assert(to_free < num_pages);
         assert(page_table[to_free][PT_MAPPED] != 0);
