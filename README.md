@@ -1,9 +1,9 @@
 # Projeto - Gerenciador de Memória - SIN351
 
 ### Memory Manager
->*Status:* Concluido :shipit:
+>*Status:* Concluído :white_check_mark: :shipit:
 
->*Descrição:* Segundo projeto proposto pelo professor Rodrigo Moreira da disciplina de Sistemas Operacionais - SIN351 da *Universidade Federal de Viçosa - Campus Rio Paranaíba (UFV-CRP)*. 
+>*Descrição:* Segundo projeto proposto pelo professor Rodrigo Moreira na disciplina de Sistemas Operacionais - SIN351 da *Universidade Federal de Viçosa - Campus Rio Paranaíba (UFV-CRP)*. 
 
 ### Developed by:
 * Jhonatha Cordeiro Gomes - 5984
@@ -21,7 +21,7 @@
 
 :small_blue_diamond:[Comparação](#Comparação)
 
-:small_blue_diamond:[Problemas e bugs](#Bugs)
+:small_blue_diamond:[Problemas e bugs](#Problemas_e_bugs)
 
 :small_blue_diamond:[Contato](#Contato)
 
@@ -31,7 +31,7 @@
 * Aprimorar as capacidades de programação em Linguagem C.
 
 ### Funcionamento:
-Neste projeto foi implementado em linguagem C algoritmo de subistituição de páginas (Conteúdo de Memória Virtual) e comparado o desempenho do Algoritmo implementado com o Random (Aleatório) disponibilizado pelo professor. Posteriormente foi produzido um relatório técnico explicando as principais funcionalidades do código e do algoritmo de
+Neste projeto foi implementado em linguagem C um algoritmo de subistituição de páginas (Conteúdo de Memória Virtual) e comparado o desempenho do Algoritmo implementado com o Random (Aleatório) disponibilizado pelo professor. Posteriormente produzimos um relatório técnico explicando as principais funcionalidades do código e do algoritmo de
 subistituição de páginas escolhido. Ao final da execução do programa, é exibido a quantidade de falta de páginas para cada algoritmo: o desenvolvido pelo aluno e o Random. 
 
 
@@ -114,7 +114,7 @@ EXECUÇÃO |FIFO    |RANDOM  |
    * Devido a isso, uma grande parcela do tempo disponibilizado para confecção do projeto, foi gasto em execuções, prints e testes de mesa do código.
 
 * A descrição do projeto também nos levou a entender que algo mais, além da implementação do algoritmo escolhido, deveria ser feito.
-   * Porém, provavelment foi apenas uma interpretação equivocada da equipe.
+   * Porém, provavelmente foi apenas uma interpretação equivocada da equipe.
 
 * Assert, fifo_frm e to_free
    * Não conseguimos solucionar um bug no projeto. Nosso algoritmo retorna corretamente o número de page faults, mas printando as variáveis to_free e fifo_frm é possível perceber que elas não estão apontando o mesmo endereço, possuem valores diferentes. Com outras implementações testadas retornava um bug de mapeamento e não obtinhamos o resultado esperado. 
