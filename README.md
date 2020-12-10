@@ -1,7 +1,7 @@
 # Projeto - Gerenciador de Memória - SIN351
 
 ### Memory Manager
->*Status:* Em andamento :shipit:
+>*Status:* Concluido :shipit:
 
 >*Descrição:* Segundo projeto proposto pelo professor Rodrigo Moreira da disciplina de Sistemas Operacionais - SIN351 da *Universidade Federal de Viçosa - Campus Rio Paranaíba (UFV-CRP)*. 
 
