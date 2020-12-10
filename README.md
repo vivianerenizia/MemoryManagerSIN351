@@ -21,7 +21,7 @@
 
 :small_blue_diamond:[Comparação](#Comparação)
 
-:small_blue_diamond:[Problemas e bugs](#Problemas_e_bugs)
+:small_blue_diamond:[Problemas e bugs](#Problemas)
 
 :small_blue_diamond:[Contato](#Contato)
 
