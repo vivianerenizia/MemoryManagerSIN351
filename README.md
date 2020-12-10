@@ -11,6 +11,9 @@
 * Viviane Renizia Mendes Silva - 5209
   * https://github.com/vivianerenizia
 
+### Repositório no GitHub:
+* https://github.com/vivianerenizia/MemoryManagerSIN351
+
 ### Seções:
 
 :small_blue_diamond:[Objetivos](#Objetivos)
@@ -21,7 +24,7 @@
 
 :small_blue_diamond:[Comparação](#Comparação)
 
-:small_blue_diamond:[Problemas e bugs](#Problemas)
+:small_blue_diamond:[Problemas e bugs](#Problemasebugs)
 
 :small_blue_diamond:[Contato](#Contato)
 
