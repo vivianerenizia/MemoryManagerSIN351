@@ -17,7 +17,11 @@
 
 :small_blue_diamond:[Funcionamento](#Funcionamento)
 
+:small_blue_diamond:[FIFO](#FIFO)
+
 :small_blue_diamond:[Comparação](#Comparação)
+
+:small_blue_diamond:[Problemas e bugs](#Bugs)
 
 :small_blue_diamond:[Contato](#Contato)
 
@@ -39,7 +43,7 @@ gcc -Wall vmm.c -o vmm
 <img src="https://github.com/vivianerenizia/MemoryManagerSIN351/blob/master/imgs/compilando.png" height="400" width="700">
 
 * Passo 02 - Execução 
-   * 3 algritmos podem ser executados: FIFO, Second Chance e Random.
+   * 2 algoritmos podem ser executados: FIFO e Random.
    * Para execução, é preciso utilizar 3 parâmetros como demonstrado abaixo: 
 ~~~C
 ./vmm fifo 10 < anomaly.dat
@@ -51,7 +55,10 @@ gcc -Wall vmm.c -o vmm
 ~~~
 <img src="https://github.com/vivianerenizia/MemoryManagerSIN351/blob/master/imgs/randomcomando.png" height="400" width="700">
 
-### Comparação
+### FIFO:
+> Funcionamento FIFO
+
+### Comparação:
 
 EXECUÇÃO |FIFO    |RANDOM  |
 :-------:|:------:|:------:| 
@@ -79,6 +86,18 @@ EXECUÇÃO |FIFO    |RANDOM  |
    * As médias de Page Fault foram próximas uma da outra;
    * Ambos os algoritmos tem desempenho duvidoso em relação aos outros algoritmos de troca de página, existem melhores.
 
+### Problemas e bugs:
+
+* Um ponto importante a se destacar é a complexidade do esqueleto disponibilizado. Código um pouco extenso, complexo e com poucos comentários.
+   * Devido a isso, uma grande parcela do tempo disponibilizado para confecção do projeto, foi gasto em execuções, prints e testes de mesa do código.
+
+* A descrição do projeto também nos levou a entender que algo mais, além da implementação do algoritmo escolhido, deveria ser feito.
+   * Porém, provavelment foi apenas uma interpretação equivocada da equipe.
+
+* Assert, fifo_frm e to_free
+   * Não conseguimos solucionar um bug no projeto. Nosso algoritmo retorna corretamente o número de page faults, mas printando as variáveis to_free e fifo_frm é possível perceber que elas não estão apontando o mesmo endereço, possuem valores diferentes. Com outras implementações testadas retornava um bug de mapeamento e não obtinhamos o resultado esperado. 
+       > * Em conclusão, retornamos o resultado correto, porém, a página retirada da memória pode não ser a página correta. Não conseguimos "driblar" o assert.
+       
 ### Contato:
 * Jhonatha Cordeiro Gomes 
   * https://www.linkedin.com/in/jhonathacordeiro/
